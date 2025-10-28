@@ -1,5 +1,6 @@
 package ru.netology.web.page;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.web.data.DataHelper;
@@ -31,12 +32,12 @@ public class PaymentPage {
         continueButton.click();
     }
 
-    public void successMessage() {
-        successMessage.shouldBe(visible, Duration.ofSeconds(15));
+    public void successMessage(String expectedText) {
+        successMessage.shouldHave(Condition.exactText(expectedText)).shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
 
-    public void errorMessage() {
-        errorMessage.shouldBe(visible, Duration.ofSeconds(15));
+    public void errorMessage(String expectedText) {
+        errorMessage.shouldHave(Condition.exactText(expectedText)).shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
 
 
