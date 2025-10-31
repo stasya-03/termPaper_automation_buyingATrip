@@ -13,12 +13,12 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class PaymentPage {
 
-    private SelenideElement numberField = $$("input__control").findBy(text("Номер карты")).$("input");
-    private SelenideElement monthField = $$("input__control").findBy(text("Месяц")).$("input");
-    private SelenideElement yearField = $$("input__control").findBy(text("Год")).$("input");
-    private SelenideElement ownerField = $$("input__control").findBy(text("Владелец")).$("input");
-    private SelenideElement cvcField = $$("input__control").findBy(text("CVC/CVV")).$("input");
-    private SelenideElement continueButton = $(Selectors.byText("Продолжить"));
+    private SelenideElement numberField = $("[placeholder='0000 0000 0000 0000']");
+    private SelenideElement monthField = $("[placeholder='08']");
+    private SelenideElement yearField = $("[placeholder='22']");
+    private SelenideElement ownerField = $$("input.input__control").find(exactText("Владелец"));
+    private SelenideElement cvcField = $("[placeholder='999']");
+    private SelenideElement continueButton = $$("button.button").find(exactText("Продолжить"));
 
     private SelenideElement successMessage = $$("notification__content").findBy(text("Успешно"));
     private SelenideElement errorMessage = $$("notification__content").findBy(text("Ошибка!"));
